@@ -16,6 +16,9 @@ add_library(QtExtrasSystem SHARED
   system.cpp
   system.h
   qbatteryinfo.h qbatteryinfo.cpp
+  qbatteryinfo_platform_p.h
+  qbatteryinfo_platform_win_p.cpp
+  qbatteryinfo_platform_win_p.h
 )
 
 target_link_libraries(QtExtrasSystem PRIVATE Qt${QT_VERSION_MAJOR}::Core)

@@ -1,4 +1,5 @@
 #include <QTest>
+#include "qbatteryinfo.h"
 
 // add necessary includes here
 
@@ -17,7 +18,9 @@ private slots:
 
 tst_QBatteryInfo::tst_QBatteryInfo()
 {
-
+    if (!QBatteryInfo::instance()->isAvailable()) {
+        QSKIP("No battery available on this system.");
+    }
 }
 
 tst_QBatteryInfo::~tst_QBatteryInfo()
@@ -27,9 +30,10 @@ tst_QBatteryInfo::~tst_QBatteryInfo()
 
 void tst_QBatteryInfo::test_case1()
 {
-
+    qDebug() << QBatteryInfo::instance()->isAvailable();
+    qDebug() << QBatteryInfo::instance()->level();
 }
 
-QTEST_APPLESS_MAIN(tst_QBatteryInfo)
+QTEST_MAIN(tst_QBatteryInfo)
 
 #include "tst_qbatteryinfo.moc"

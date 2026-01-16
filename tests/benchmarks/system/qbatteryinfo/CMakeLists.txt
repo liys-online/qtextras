@@ -19,3 +19,4 @@ add_test(NAME qbatteryinfo COMMAND qbatteryinfo)
 
 target_link_libraries(tst_qbatteryinfo PRIVATE Qt${QT_VERSION_MAJOR}::Test)
 
+target_link_libraries(tst_qbatteryinfo PRIVATE QtExtrasSystem)
