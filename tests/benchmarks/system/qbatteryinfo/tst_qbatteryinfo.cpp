@@ -31,7 +31,8 @@ tst_QBatteryInfo::~tst_QBatteryInfo()
 void tst_QBatteryInfo::test_case1()
 {
     qDebug() << QBatteryInfo::instance()->isAvailable();
-    qDebug() << QBatteryInfo::instance()->level();
+    qDebug() << QBatteryInfo::instance()->batteryLifePercent();
+    qDebug() << QBatteryInfo::instance()->isCharging();
 }
 
 QTEST_MAIN(tst_QBatteryInfo)

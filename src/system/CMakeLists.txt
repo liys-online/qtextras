@@ -10,15 +10,14 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core)
-
+include(core)
 add_library(QtExtrasSystem SHARED
   system_global.h
   system.cpp
   system.h
   qbatteryinfo.h qbatteryinfo.cpp
-  qbatteryinfo_platform_p.h
-  qbatteryinfo_platform_win_p.cpp
-  qbatteryinfo_platform_win_p.h
+  qbatteryinfo_p.h
+  qbatteryinfo_win.cpp
 )
 
 target_link_libraries(QtExtrasSystem PRIVATE Qt${QT_VERSION_MAJOR}::Core)

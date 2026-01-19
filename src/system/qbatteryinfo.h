@@ -9,7 +9,7 @@ class QTEXTRAS_SYSTEM_EXPORT QBatteryInfo final : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(bool available READ isAvailable NOTIFY availableChanged)
-    Q_PROPERTY(int level READ level NOTIFY levelChanged)
+    Q_PROPERTY(int batteryLifePercent READ batteryLifePercent NOTIFY batteryLifePercentChanged)
     Q_PROPERTY(bool charging READ isCharging NOTIFY chargingChanged)
 public:
 
@@ -45,13 +45,13 @@ public:
 
     bool isAvailable() const;
 
-    int level() const;
+    int batteryLifePercent() const;
 
     bool isCharging() const;
 
 Q_SIGNALS:
     void availableChanged(bool available);
-    void levelChanged(int level);
+    void batteryLifePercentChanged(int level);
     void chargingChanged(bool charging);
 
 private:
@@ -59,12 +59,6 @@ private:
     QBatteryInfo(const QBatteryInfo &) = delete;
     QBatteryInfo &operator=(const QBatteryInfo &) = delete;
 
-
-    void update();
-
-    bool m_available;
-    int m_level;
-    bool m_charging;
     QBatteryInfoPrivate * const d_ptr;
     Q_DECLARE_PRIVATE(QBatteryInfo)
 };
